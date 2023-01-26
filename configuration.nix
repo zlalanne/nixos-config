@@ -155,13 +155,6 @@
           config = builtins.readFile ./dotfiles/nvim/telescope.lua;
         }
         {
-          plugin = undotree;
-          type = "lua";
-          config = ''
-            vim.keymap.set("n", "<leader>au", ":UndotreeToggle<CR>")
-          '';
-        }
-        {
           plugin = which-key-nvim;
           type = "lua";
           config = builtins.readFile ./dotfiles/nvim/which-key.lua;
@@ -173,6 +166,8 @@
 #            vim.cmd('colorscheme solarized')
 #          '';
 #        }
+
+        undotree
 
         # Syntax / Language Support
         nvim-lspconfig
