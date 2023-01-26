@@ -161,6 +161,11 @@
             vim.keymap.set("n", "<leader>au", ":UndotreeToggle<CR>")
           '';
         }
+        {
+          plugin = which-key-nvim;
+          type = "lua";
+          config = builtins.readFile ./dotfiles/nvim/which-key.lua;
+        }
 #        {
 #          plugin = nvim-solarized-lua;
 #          type = "lua";
