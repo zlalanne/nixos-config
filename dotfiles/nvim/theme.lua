@@ -1,6 +1,5 @@
 
-require('onedark').setup {
-  style = 'dark'
-}
+vim.opt.termguicolors = true
 
-require('onedark').load()
+vim.g.solarized_termtrans = 1
+vim.cmd('colorscheme solarized')

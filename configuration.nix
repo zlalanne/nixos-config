@@ -107,11 +107,11 @@
 
     programs.kitty = {
       enable = true;
-      #theme = "Solarized Dark - Patched";
-      theme = "One Dark";
+      theme = "Solarized Dark - Patched";
       font = {
         name = "Hack";
         package = pkgs.hack-font;
+        size = 12;
       };
       extraConfig = "enable_audio_bell no";
     };
@@ -161,7 +161,7 @@
           config = builtins.readFile ./dotfiles/nvim/which-key.lua;
         }
         {
-          plugin = onedark-nvim;
+          plugin = nvim-solarized-lua;
           type = "lua";
           config = builtins.readFile ./dotfiles/nvim/theme.lua;
         }
