@@ -107,7 +107,8 @@
 
     programs.kitty = {
       enable = true;
-      theme = "Solarized Dark - Patched";
+      #theme = "Solarized Dark - Patched";
+      theme = "One Dark";
       font = {
         name = "Hack";
         package = pkgs.hack-font;
@@ -159,13 +160,11 @@
           type = "lua";
           config = builtins.readFile ./dotfiles/nvim/which-key.lua;
         }
-#        {
-#          plugin = nvim-solarized-lua;
-#          type = "lua";
-#          config = ''
-#            vim.cmd('colorscheme solarized')
-#          '';
-#        }
+        {
+          plugin = onedark-nvim;
+          type = "lua";
+          config = builtins.readFile ./dotfiles/nvim/theme.lua;
+        }
 
         undotree
 
@@ -173,46 +172,18 @@
         nvim-lspconfig
         vim-nix
 
-        # UI
-#        vim-colors-solarized
-#        vim-gitgutter
-#        vim-airline
-#        vim-airline-themes
       ];
       extraPackages = [
         # Make telescope / fuzzy finding better
         pkgs.ripgrep
         pkgs.fd
+
         # LSP related
         pkgs.rnix-lsp 
       ];
       extraConfig = ''
       let mapleader = " "
       '';
-#      extraConfig = ''
-#        if executable('rnix-lsp')
-#          au User lsp_setup call lsp#register_server({
-#          \ 'name': 'rnix-lsp',
-#          \ 'cmd': {server_info->[&shell, &shellcmdflag, 'rnix-lsp']},
-#          \ 'whitelist': ['nix'],
-#          \ })
-#        endif
-#        """"""""""""""""""""""
-#        " Keybindings
-#        """"""""""""""""""""""
-#        let mapleader = " "
-#        """"""""""""""""""""""
-#        " UI
-#        """"""""""""""""""""""
-#        " set background=dark
-#        " Set to transparent background to work better with kitty theme
-#        let g:solarized_termtrans=1
-#        " colorscheme solarized
-#        " let g:airline_theme='solarized'
-#        " let g:airline_powerline_fonts = 1
-#        " Set background color of git gutter correctly
-#        "highlight! link SignColumn LineNr
-#      '';
     };
 
     programs.zsh = {
