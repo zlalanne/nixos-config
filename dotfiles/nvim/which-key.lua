@@ -25,8 +25,6 @@ wk.register({
     l = { "<C-w>l", "Move to right window"},
     j = { "<C-w>j", "Move to window below"},
     k = { "<C-w>k", "Move to window above"},
-    v = { "<cmd>vsplit<cr>", "Split vertically"},
-    s = { "<cmd>split<cr>", "Split horizontally"},
     d = { "<cmd>q<cr>", "Close the window"}
   },
   a = {
@@ -38,3 +36,11 @@ wk.register({
     f = { "<cmd>Telescope git_files<cr>", "Project files" }
   }
 }, { prefix = "<leader>"})
+
+-- Some keybindings for special characters are easier to bind this way
+wk.register({
+    ["<leader><Tab>"] = {"<C-6>", "Last Buffer"},
+    ["<leader>w|"] = {"<cmd>vsplit<cr>", "Split vertically"},
+    ["<leader>w-"] = {"<cmd>split<cr>", "Split horizontally"}
+})
+
