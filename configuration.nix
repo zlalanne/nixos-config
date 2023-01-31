@@ -76,140 +76,153 @@
     packages = with pkgs; [ firefox kate vlc ];
   };
 
-  home-manager.users.zack = { pkgs, ... }: {
-
-    home.stateVersion = "22.11";
-
-    home.packages = [
-      # Command line utilities
-      pkgs.htop
-      pkgs.nixfmt
-      pkgs.rsync
-      pkgs.ripgrep
-      pkgs.gnumake
-
-      # Development
-      pkgs.esphome
-      pkgs.yamllint
-
-      # DevOps Tools
-      pkgs.ansible
-
-      # Media Management
-      pkgs.calibre
-    ];
-
-    services.syncthing = { enable = true; };
-
-    programs.kitty = {
-      enable = true;
-      theme = "Solarized Dark - Patched";
-      font = {
-        name = "Hack";
-        package = pkgs.hack-font;
-        size = 12;
+  home-manager.users.zack = { pkgs, ... }:
+    let
+      vim-be-good = pkgs.vimUtils.buildVimPluginFrom2Nix {
+        name = "vim-be-good";
+        src = pkgs.fetchFromGitHub {
+          owner = "ThePrimeagen";
+          repo = "vim-be-good";
+          rev = "c290810728a4f75e334b07dc0f3a4cdea908d351";
+          hash = "sha256-lJNY/5dONZLkxSEegrwtZ6PHYsgMD3nZkbxm6fFq3vY=";
+        };
       };
-      extraConfig = "enable_audio_bell no";
-    };
+    in {
 
-    programs.bat = {
-      enable = true;
-      config = { theme = "Solarized (dark)"; };
-    };
+      home.stateVersion = "22.11";
 
-    programs.exa = {
-      enable = true;
-      enableAliases = true;
-    };
-
-    programs.fzf = {
-      enable = true;
-      defaultOptions = [
-        "--color=bg+:#073642,bg:#002b36,spinner:#719e07,hl:#586e75"
-        "--color=fg:#839496,header:#586e75,info:#cb4b16,pointer:#719e07"
-        "--color=marker:#719e07,fg+:#839496,prompt:#719e07,hl+:#719e07"
-      ];
-    };
-
-    programs.git = {
-      enable = true;
-      userName = "Zack Lalanne";
-      userEmail = "zack.lalanne@gmail.com";
-      extraConfig = {
-        color.ui = true;
-        core.pager =
-          "${pkgs.diff-so-fancy}/bin/diff-so-fancy | ${pkgs.less}/bin/less --tabs=4 -RFX";
-        interactive.diffFilter =
-          "${pkgs.diff-so-fancy}/bin/diff-so-fancy --patch";
-      };
-    };
-
-    programs.neovim = {
-      enable = true;
-      vimAlias = true;
-      plugins = with pkgs.vimPlugins; [
-        {
-          plugin = nvim-treesitter.withAllGrammars;
-          type = "lua";
-          config = builtins.readFile ./dotfiles/nvim/treesitter.lua;
-        }
-        {
-          plugin = telescope-nvim;
-          type = "lua";
-          config = builtins.readFile ./dotfiles/nvim/telescope.lua;
-        }
-        {
-          plugin = which-key-nvim;
-          type = "lua";
-          config = builtins.readFile ./dotfiles/nvim/which-key.lua;
-        }
-        {
-          plugin = nvim-solarized-lua;
-          type = "lua";
-          config = builtins.readFile ./dotfiles/nvim/theme.lua;
-        }
-
-        undotree
-
-        # Syntax / Language Support
-        nvim-lspconfig
-        vim-nix
-
-      ];
-      extraPackages = [
-        # Make telescope / fuzzy finding better
+      home.packages = [
+        # Command line utilities
+        pkgs.htop
+        pkgs.nixfmt
+        pkgs.rsync
         pkgs.ripgrep
-        pkgs.fd
+        pkgs.gnumake
 
-        # LSP related
-        pkgs.rnix-lsp
+        # Development
+        pkgs.esphome
+        pkgs.yamllint
+
+        # DevOps Tools
+        pkgs.ansible
+
+        # Media Management
+        pkgs.calibre
       ];
-      extraConfig = ''
-        lua <<EOF
-      '' + (builtins.readFile ./dotfiles/nvim/general.lua) + ''
 
-        EOF'';
-    };
+      services.syncthing = { enable = true; };
 
-    programs.zsh = {
-      enable = true;
-      enableCompletion = false;
-      enableAutosuggestions = true;
-      oh-my-zsh = {
+      programs.kitty = {
         enable = true;
-        plugins = [ "git" "rsync" "extract" "ripgrep" "docker" ];
-        theme = "ys";
-        extraConfig = ''
-          COMPLETION_WAITING_DOTS="true"
-        '';
+        theme = "Solarized Dark - Patched";
+        font = {
+          name = "Hack";
+          package = pkgs.hack-font;
+          size = 12;
+        };
+        extraConfig = "enable_audio_bell no";
       };
-      shellAliases = {
-        hme = "home-manager edit";
-        hms = "home-manager switch";
-        hmn = "home-manager news";
+
+      programs.bat = {
+        enable = true;
+        config = { theme = "Solarized (dark)"; };
+      };
+
+      programs.exa = {
+        enable = true;
+        enableAliases = true;
+      };
+
+      programs.fzf = {
+        enable = true;
+        defaultOptions = [
+          "--color=bg+:#073642,bg:#002b36,spinner:#719e07,hl:#586e75"
+          "--color=fg:#839496,header:#586e75,info:#cb4b16,pointer:#719e07"
+          "--color=marker:#719e07,fg+:#839496,prompt:#719e07,hl+:#719e07"
+        ];
+      };
+
+      programs.git = {
+        enable = true;
+        userName = "Zack Lalanne";
+        userEmail = "zack.lalanne@gmail.com";
+        extraConfig = {
+          color.ui = true;
+          core.pager =
+            "${pkgs.diff-so-fancy}/bin/diff-so-fancy | ${pkgs.less}/bin/less --tabs=4 -RFX";
+          interactive.diffFilter =
+            "${pkgs.diff-so-fancy}/bin/diff-so-fancy --patch";
+        };
+      };
+
+      programs.neovim = {
+        enable = true;
+        vimAlias = true;
+        plugins = with pkgs.vimPlugins; [
+          {
+            plugin = nvim-treesitter.withAllGrammars;
+            type = "lua";
+            config = builtins.readFile ./dotfiles/nvim/treesitter.lua;
+          }
+          {
+            plugin = telescope-nvim;
+            type = "lua";
+            config = builtins.readFile ./dotfiles/nvim/telescope.lua;
+          }
+          {
+            plugin = which-key-nvim;
+            type = "lua";
+            config = builtins.readFile ./dotfiles/nvim/which-key.lua;
+          }
+          {
+            plugin = nvim-solarized-lua;
+            type = "lua";
+            config = builtins.readFile ./dotfiles/nvim/theme.lua;
+          }
+
+          undotree
+
+          # Syntax / Language Support
+          nvim-lspconfig
+          vim-nix
+
+          vim-be-good
+
+        ];
+        extraPackages = [
+          # Make telescope / fuzzy finding better
+          pkgs.ripgrep
+          pkgs.fd
+
+          # LSP related
+          pkgs.rnix-lsp
+        ];
+        extraConfig = ''
+          lua <<EOF
+        '' + (builtins.readFile ./dotfiles/nvim/general.lua) + ''
+
+          EOF'';
+      };
+
+      programs.zsh = {
+        enable = true;
+        enableCompletion = false;
+        enableAutosuggestions = true;
+        oh-my-zsh = {
+          enable = true;
+          plugins = [ "git" "rsync" "extract" "ripgrep" "docker" ];
+          theme = "ys";
+          extraConfig = ''
+            COMPLETION_WAITING_DOTS="true"
+          '';
+        };
+        shellAliases = {
+          hme = "home-manager edit";
+          hms = "home-manager switch";
+          hmn = "home-manager news";
+        };
       };
     };
-  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
