@@ -2,7 +2,6 @@
 vim.o.timeout = true
 vim.o.timeoutlen = 300
 
-
 -- Use setup defaults with spelling enabled
 require("which-key").setup {
   plugins = {
@@ -33,5 +32,9 @@ wk.register({
   a = {
     name = "applications",
     u = { "<cmd>UndotreeToggle<cr>", "UndoTree" }
+  },
+  p = {
+    name = "project",
+    f = { "<cmd>Telescope git_files<cr>", "Project files" }
   }
 }, { prefix = "<leader>"})

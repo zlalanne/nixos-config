@@ -73,11 +73,7 @@
     description = "Zack Lalanne";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
-    packages = with pkgs; [
-      firefox
-      kate
-      vlc
-    ];
+    packages = with pkgs; [ firefox kate vlc ];
   };
 
   home-manager.users.zack = { pkgs, ... }: {
@@ -179,11 +175,13 @@
         pkgs.fd
 
         # LSP related
-        pkgs.rnix-lsp 
+        pkgs.rnix-lsp
       ];
       extraConfig = ''
-      let mapleader = " "
-      '';
+        lua <<EOF
+      '' + (builtins.readFile ./dotfiles/nvim/general.lua) + ''
+
+        EOF'';
     };
 
     programs.zsh = {
@@ -211,11 +209,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [ 
-    vim
-    google-chrome
-    tailscale
-  ];
+  environment.systemPackages = with pkgs; [ vim google-chrome tailscale ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
