@@ -64,6 +64,10 @@
 
   services.flatpak.enable = true;
 
+  nixpkgs.config.permittedInsecurePackages = [
+     "electron-12.2.3"
+  ];
+
   # Enable the tailscale service
   services.tailscale.enable = true;
 
@@ -73,7 +77,25 @@
     description = "Zack Lalanne";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
-    packages = with pkgs; [ firefox kate vlc ];
+    packages = with pkgs; [ 
+      # Basic tools
+      file
+      unzip
+
+      # Networking Tools
+      dig
+      nmap
+      traceroute 
+      
+      # DE
+      firefox
+      kate
+      vlc
+      
+      # One-off
+      etcher
+      screen
+    ];
   };
 
   home-manager.users.zack = { pkgs, ... }:
@@ -111,6 +133,11 @@
       ];
 
       services.syncthing = { enable = true; };
+
+      programs.tmux = {
+        enable = true;
+        prefix = "C-a";
+      };
 
       programs.kitty = {
         enable = true;
@@ -179,6 +206,8 @@
             type = "lua";
             config = builtins.readFile ./dotfiles/nvim/theme.lua;
           }
+
+          vim-fugitive
 
           undotree
 

@@ -34,7 +34,11 @@ wk.register({
   p = {
     name = "project",
     f = { "<cmd>Telescope git_files<cr>", "Project files" }
-  }
+  },
+  g = {
+    name = "git",
+    s = { "<cmd>Git<cr>", "git status" }
+  },
 }, { prefix = "<leader>"})
 
 -- Some keybindings for special characters are easier to bind this way
