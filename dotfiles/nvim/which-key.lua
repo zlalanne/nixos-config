@@ -37,7 +37,8 @@ wk.register({
   },
   g = {
     name = "git",
-    s = { "<cmd>Git<cr>", "git status" }
+    s = { "<cmd>Git<cr>", "git status" },
+    p = { "<cmd>Git push<cr>", "git push" }
   },
 }, { prefix = "<leader>"})
 

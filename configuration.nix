@@ -206,8 +206,11 @@
             type = "lua";
             config = builtins.readFile ./dotfiles/nvim/theme.lua;
           }
-
-          vim-fugitive
+          {
+            plugin = vim-fugitive;
+            type = "lua";
+            config = builtins.readFile ./dotfiles/nvim/fugitive.lua;
+          }
 
           undotree
 
