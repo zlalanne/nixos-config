@@ -22,7 +22,7 @@ vim.opt.updatetime = 50
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
--- 80 char
+-- 80 char column
 vim.opt.colorcolumn = "80"
 
 -- Extra keybindings
