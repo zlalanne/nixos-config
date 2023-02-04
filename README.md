@@ -1,3 +1,9 @@
+# nixos-config
+
+My config for my nixos machines and other systems that leverage home manager
+using the nix package manager.
+
+Still very much a WIP as I learn some nix stuff.
 
 ## TODO
 
