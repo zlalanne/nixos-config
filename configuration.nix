@@ -212,10 +212,19 @@
             config = builtins.readFile ./dotfiles/nvim/fugitive.lua;
           }
 
+          nvim-lspconfig
+          cmp-buffer
+          cmp-path
+          cmp-nvim-lsp
+          {
+            plugin = nvim-cmp;
+            type = "lua";
+            config = builtins.readFile ./dotfiles/nvim/lsp.lua;
+          }
+
           undotree
 
           # Syntax / Language Support
-          nvim-lspconfig
           vim-nix
 
           vim-be-good
@@ -227,6 +236,7 @@
           pkgs.fd
 
           # LSP related
+          pkgs.sumneko-lua-language-server
           pkgs.rnix-lsp
         ];
         extraConfig = ''
