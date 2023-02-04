@@ -30,3 +30,12 @@ vim.g.mapleader = " "
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- Turn on spellcheck in some files
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "gitcommit", "markdown" },
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.spell = true
+  end,
+})
