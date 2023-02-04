@@ -14,10 +14,13 @@ Still very much a WIP as I learn some nix stuff.
 - [ ] Use q for quiting out of help menus
 - [ ] Maybe make git commit quieter?
 - [ ] Set descriptions for keybindings in their own files but integrate with whichkey
+- [ ] Bash language server integration
+- [ ] YAML language server integration
 
 ### Nix
 
 - [ ] split out nix config so it's easier to consume home-manager stuff
+- [ ] Need nixpkg for ansible language server
 
 ### Other
 
