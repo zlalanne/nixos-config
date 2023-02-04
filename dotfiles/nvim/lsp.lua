@@ -39,3 +39,5 @@ require("lspconfig")["sumneko_lua"].setup {
   },
   capabilities = capabilities,
 }
+
+require("lspconfig")["nil_ls"].setup {}

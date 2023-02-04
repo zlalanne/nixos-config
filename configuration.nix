@@ -224,9 +224,6 @@
 
           undotree
 
-          # Syntax / Language Support
-          vim-nix
-
           vim-be-good
 
         ];
@@ -237,7 +234,7 @@
 
           # LSP related
           pkgs.sumneko-lua-language-server
-          pkgs.rnix-lsp
+          pkgs.nil
         ];
         extraConfig = ''
           lua <<EOF
