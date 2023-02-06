@@ -221,6 +221,11 @@
             type = "lua";
             config = builtins.readFile ./dotfiles/nvim/lsp.lua;
           }
+          {
+            plugin = lualine-nvim;
+            type = "lua";
+            config = builtins.readFile ./dotfiles/nvim/lualine.lua;
+          }
 
           undotree
 
