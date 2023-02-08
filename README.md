@@ -17,6 +17,7 @@ Still very much a WIP as I learn some nix stuff.
 - [ ] Bash language server integration
 - [ ] YAML language server integration
 - [ ] Set up cmp/cmdlind and cmp/git
+- [ ] Set up better tab movement with luasnip
 
 ### Nix
 
