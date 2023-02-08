@@ -216,11 +216,15 @@
           cmp-buffer
           cmp-path
           cmp-nvim-lsp
+          luasnip
+          cmp_luasnip
+          friendly-snippets
           {
             plugin = nvim-cmp;
             type = "lua";
             config = builtins.readFile ./dotfiles/nvim/lsp.lua;
           }
+
           {
             plugin = lualine-nvim;
             type = "lua";
@@ -243,8 +247,8 @@
         ];
         extraConfig = ''
           lua <<EOF
-        '' + (builtins.readFile ./dotfiles/nvim/general.lua) + ''
-
+        '' + (builtins.readFile ./dotfiles/nvim/general.lua) + "\n" +
+             (builtins.readFile ./dotfiles/nvim/keymaps.lua) + ''
           EOF'';
       };
 

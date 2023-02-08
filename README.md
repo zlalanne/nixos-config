@@ -10,12 +10,13 @@ Still very much a WIP as I learn some nix stuff.
 ### Neovim
 
 - [ ] Add git diff icons in the gutter
-- [ ] Lua LSP integration
+- [x] Lua LSP integration
 - [ ] Use q for quiting out of help menus
 - [ ] Maybe make git commit quieter?
 - [ ] Set descriptions for keybindings in their own files but integrate with whichkey
 - [ ] Bash language server integration
 - [ ] YAML language server integration
+- [ ] Set up cmp/cmdlind and cmp/git
 
 ### Nix
 
