@@ -12,6 +12,7 @@ Still very much a WIP as I learn some nix stuff.
 - [x] Add git diff icons in the gutter
 - [x] Lua LSP integration
 - [ ] Buffer formatting
+- [ ] Better clipboard integration
 - [ ] Consider reorganizing lua config
 - [ ] Use q for quiting out of help menus
 - [ ] Maybe make git commit quieter?
