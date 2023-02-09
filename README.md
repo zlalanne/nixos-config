@@ -9,8 +9,10 @@ Still very much a WIP as I learn some nix stuff.
 
 ### Neovim
 
-- [ ] Add git diff icons in the gutter
+- [x] Add git diff icons in the gutter
 - [x] Lua LSP integration
+- [ ] Buffer formatting
+- [ ] Consider reorganizing lua config
 - [ ] Use q for quiting out of help menus
 - [ ] Maybe make git commit quieter?
 - [ ] Set descriptions for keybindings in their own files but integrate with whichkey

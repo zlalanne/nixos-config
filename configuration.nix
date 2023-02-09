@@ -143,8 +143,8 @@
         enable = true;
         theme = "Solarized Dark - Patched";
         font = {
-          name = "Hack";
-          package = pkgs.hack-font;
+          name = "Hack Nerd Font";
+          package = pkgs.nerdfonts;
           size = 12;
         };
         extraConfig = "enable_audio_bell no";
@@ -224,11 +224,15 @@
             type = "lua";
             config = builtins.readFile ./dotfiles/nvim/lsp.lua;
           }
-
           {
             plugin = lualine-nvim;
             type = "lua";
             config = builtins.readFile ./dotfiles/nvim/lualine.lua;
+          }
+          {
+            plugin = gitsigns-nvim;
+            type = "lua";
+            config = builtins.readFile ./dotfiles/nvim/gitsigns.lua;
           }
 
           undotree

@@ -55,7 +55,6 @@ local on_attach = function(client, buffer)
   if client.server_capabilities.document_formatting then
       print("Supports document formatting3")
   end
-
 end
 
 -- Language server setup
@@ -82,6 +81,9 @@ require("lspconfig")["sumneko_lua"].setup {
       -- Do not send telemetry data containing a randomized but unique identifier
       telemetry = {
         enable = false,
+      },
+      completion = {
+        callSnippet = 'Replace',
       },
     },
   },
