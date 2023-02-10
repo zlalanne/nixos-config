@@ -1,4 +1,3 @@
-
 vim.opt.termguicolors = true
 
 vim.g.solarized_termtrans = 1
