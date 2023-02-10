@@ -29,7 +29,8 @@ wk.register({
   },
   a = {
     name = "applications",
-    u = { "<cmd>UndotreeToggle<cr>", "UndoTree" }
+    u = { "<cmd>UndotreeToggle<cr>", "UndoTree" },
+    v = { "<cmd>VimBeGood<cr>", "VimBeGood" }
   },
   p = {
     name = "project",

@@ -248,6 +248,7 @@
           # LSP related
           pkgs.sumneko-lua-language-server
           pkgs.nil
+          pkgs.nodePackages.yaml-language-server
         ];
         extraConfig = ''
           lua <<EOF
