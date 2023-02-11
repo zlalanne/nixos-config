@@ -3,7 +3,8 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }: {
-  imports = [ # Include the results of the hardware scan.
+  imports = [
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
     <home-manager/nixos>
   ];
@@ -65,7 +66,7 @@
   services.flatpak.enable = true;
 
   nixpkgs.config.permittedInsecurePackages = [
-     "electron-12.2.3"
+    "electron-12.2.3"
   ];
 
   # Enable the tailscale service
@@ -77,7 +78,7 @@
     description = "Zack Lalanne";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
-    packages = with pkgs; [ 
+    packages = with pkgs; [
       # Basic tools
       file
       unzip
@@ -85,13 +86,13 @@
       # Networking Tools
       dig
       nmap
-      traceroute 
-      
+      traceroute
+
       # DE
       firefox
       kate
       vlc
-      
+
       # One-off
       etcher
       screen
@@ -109,14 +110,14 @@
           hash = "sha256-lJNY/5dONZLkxSEegrwtZ6PHYsgMD3nZkbxm6fFq3vY=";
         };
       };
-    in {
+    in
+    {
 
       home.stateVersion = "22.11";
 
       home.packages = [
         # Command line utilities
         pkgs.htop
-        pkgs.nixfmt
         pkgs.rsync
         pkgs.ripgrep
         pkgs.gnumake
@@ -248,12 +249,13 @@
           # LSP related
           pkgs.sumneko-lua-language-server
           pkgs.nil
+          pkgs.nixpkgs-fmt
           pkgs.nodePackages.yaml-language-server
         ];
         extraConfig = ''
           lua <<EOF
         '' + (builtins.readFile ./dotfiles/nvim/general.lua) + "\n" +
-             (builtins.readFile ./dotfiles/nvim/keymaps.lua) + ''
+        (builtins.readFile ./dotfiles/nvim/keymaps.lua) + ''
           EOF'';
       };
 
