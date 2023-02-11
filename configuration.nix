@@ -251,6 +251,7 @@
           pkgs.nil
           pkgs.nixpkgs-fmt
           pkgs.nodePackages.yaml-language-server
+          pkgs.marksman
         ];
         extraConfig = ''
           lua <<EOF

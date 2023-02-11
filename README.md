@@ -11,14 +11,18 @@ Still very much a WIP as I learn some nix stuff.
 
 - [x] Add git diff icons in the gutter
 - [x] Lua LSP integration
-- [ ] Buffer formatting
+- [x] Buffer formatting
+- [ ] Autoformatting on save
 - [ ] Better clipboard integration
 - [ ] Consider reorganizing lua config
 - [ ] Use q for quiting out of help menus
 - [ ] Maybe make git commit quieter?
 - [ ] Set descriptions for keybindings in their own files but integrate with whichkey
 - [ ] Bash language server integration
-- [ ] YAML language server integration
+- [x] YAML language server integration
+- [x] Markdown language server integration
+- [ ] Python language server
+- [ ] LSP ghost text
 - [ ] Set up cmp/cmdlind and cmp/git
 - [ ] Set up better tab movement with luasnip
 
@@ -26,6 +30,7 @@ Still very much a WIP as I learn some nix stuff.
 
 - [ ] split out nix config so it's easier to consume home-manager stuff
 - [ ] Need nixpkg for ansible language server
+- [ ] Get printer drivers working
 
 ### Other
 

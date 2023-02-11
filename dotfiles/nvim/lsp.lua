@@ -96,3 +96,8 @@ require("lspconfig")["yamlls"].setup {
     on_attach = on_attach,
     capabilities = capabilities,
 }
+
+require("lspconfig")["marksman"].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+}
