@@ -190,27 +190,27 @@
           {
             plugin = nvim-treesitter.withAllGrammars;
             type = "lua";
-            config = builtins.readFile ./dotfiles/nvim/treesitter.lua;
+            config = builtins.readFile ./dotfiles/nvim/lua/config/treesitter.lua;
           }
           {
             plugin = telescope-nvim;
             type = "lua";
-            config = builtins.readFile ./dotfiles/nvim/telescope.lua;
+            config = builtins.readFile ./dotfiles/nvim/lua/config/telescope.lua;
           }
           {
             plugin = which-key-nvim;
             type = "lua";
-            config = builtins.readFile ./dotfiles/nvim/which-key.lua;
+            config = builtins.readFile ./dotfiles/nvim/lua/config/which-key.lua;
           }
           {
             plugin = tokyonight-nvim;
             type = "lua";
-            config = builtins.readFile ./dotfiles/nvim/theme.lua;
+            config = builtins.readFile ./dotfiles/nvim/lua/config/theme.lua;
           }
           {
             plugin = vim-fugitive;
             type = "lua";
-            config = builtins.readFile ./dotfiles/nvim/fugitive.lua;
+            config = builtins.readFile ./dotfiles/nvim/lua/config/fugitive.lua;
           }
 
           nvim-lspconfig
@@ -223,17 +223,17 @@
           {
             plugin = nvim-cmp;
             type = "lua";
-            config = builtins.readFile ./dotfiles/nvim/lsp.lua;
+            config = builtins.readFile ./dotfiles/nvim/lua/config/lsp.lua;
           }
           {
             plugin = lualine-nvim;
             type = "lua";
-            config = builtins.readFile ./dotfiles/nvim/lualine.lua;
+            config = builtins.readFile ./dotfiles/nvim/lua/config/lualine.lua;
           }
           {
             plugin = gitsigns-nvim;
             type = "lua";
-            config = builtins.readFile ./dotfiles/nvim/gitsigns.lua;
+            config = builtins.readFile ./dotfiles/nvim/lua/config/gitsigns.lua;
           }
 
           undotree
@@ -255,9 +255,16 @@
         ];
         extraConfig = ''
           lua <<EOF
-        '' + (builtins.readFile ./dotfiles/nvim/general.lua) + "\n" +
-        (builtins.readFile ./dotfiles/nvim/keymaps.lua) + ''
+        '' + (builtins.readFile ./dotfiles/nvim/lua/config/general.lua) + "\n" +
+        (builtins.readFile ./dotfiles/nvim/lua/config/keymaps.lua) + ''
           EOF'';
+      };
+
+      home.file = {
+          ".config/nvim" = {
+              recursive = true;
+              source = ./dotfiles/nvim;
+          };
       };
 
       programs.zsh = {
