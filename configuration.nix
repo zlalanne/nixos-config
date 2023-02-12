@@ -142,7 +142,7 @@
 
       programs.kitty = {
         enable = true;
-        theme = "Solarized Dark - Patched";
+        theme = "Tokyo Night";
         font = {
           name = "Hack Nerd Font";
           package = pkgs.nerdfonts;
@@ -203,7 +203,7 @@
             config = builtins.readFile ./dotfiles/nvim/which-key.lua;
           }
           {
-            plugin = nvim-solarized-lua;
+            plugin = tokyonight-nvim;
             type = "lua";
             config = builtins.readFile ./dotfiles/nvim/theme.lua;
           }

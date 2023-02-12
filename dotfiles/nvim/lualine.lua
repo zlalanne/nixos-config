@@ -1,7 +1,6 @@
-
 require('lualine').setup({
     options = {
-        theme = "solarized_dark",
+        theme = "tokyonight",
     },
     sections = {
         lualine_b = {

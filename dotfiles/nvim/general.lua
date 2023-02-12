@@ -27,6 +27,9 @@ vim.opt.colorcolumn = "80"
 -- Extra keybindings
 vim.g.mapleader = " "
 
+-- Highliht current line
+vim.opt.cursorline = true
+
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
