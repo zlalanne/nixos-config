@@ -187,31 +187,16 @@
         enable = true;
         vimAlias = true;
         plugins = with pkgs.vimPlugins; [
-          {
-            plugin = nvim-treesitter.withAllGrammars;
-            type = "lua";
-            config = builtins.readFile ./dotfiles/nvim/lua/config/treesitter.lua;
-          }
-          {
-            plugin = telescope-nvim;
-            type = "lua";
-            config = builtins.readFile ./dotfiles/nvim/lua/config/telescope.lua;
-          }
-          {
-            plugin = which-key-nvim;
-            type = "lua";
-            config = builtins.readFile ./dotfiles/nvim/lua/config/which-key.lua;
-          }
-          {
-            plugin = tokyonight-nvim;
-            type = "lua";
-            config = builtins.readFile ./dotfiles/nvim/lua/config/theme.lua;
-          }
-          {
-            plugin = vim-fugitive;
-            type = "lua";
-            config = builtins.readFile ./dotfiles/nvim/lua/config/fugitive.lua;
-          }
+
+          nvim-treesitter.withAllGrammars
+          telescope-nvim
+          which-key-nvim
+
+          tokyonight-nvim
+          lualine-nvim
+          gitsigns-nvim
+
+          vim-fugitive
 
           nvim-lspconfig
           cmp-buffer
@@ -220,24 +205,9 @@
           luasnip
           cmp_luasnip
           friendly-snippets
-          {
-            plugin = nvim-cmp;
-            type = "lua";
-            config = builtins.readFile ./dotfiles/nvim/lua/config/lsp.lua;
-          }
-          {
-            plugin = lualine-nvim;
-            type = "lua";
-            config = builtins.readFile ./dotfiles/nvim/lua/config/lualine.lua;
-          }
-          {
-            plugin = gitsigns-nvim;
-            type = "lua";
-            config = builtins.readFile ./dotfiles/nvim/lua/config/gitsigns.lua;
-          }
+          nvim-cmp
 
           undotree
-
           vim-be-good
 
         ];
@@ -255,8 +225,16 @@
         ];
         extraConfig = ''
           lua <<EOF
-        '' + (builtins.readFile ./dotfiles/nvim/lua/config/general.lua) + "\n" +
-        (builtins.readFile ./dotfiles/nvim/lua/config/keymaps.lua) + ''
+            require("config.theme")
+            require("config.treesitter")
+            require("config.telescope")
+            require("config.which-key")
+            require("config.fugitive")
+            require("config.lsp")
+            require("config.lualine")
+            require("config.gitsigns")
+            require("config.general")
+            require("config.keymaps")
           EOF'';
       };
 

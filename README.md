@@ -14,7 +14,7 @@ Still very much a WIP as I learn some nix stuff.
 - [x] Buffer formatting
 - [ ] Autoformatting on save
 - [ ] Better clipboard integration
-- [ ] Consider reorganizing lua config
+- [x] Consider reorganizing lua config
 - [ ] Use q for quiting out of help menus
 - [ ] Maybe make git commit quieter?
 - [ ] Set descriptions for keybindings in their own files but integrate with whichkey
@@ -25,6 +25,7 @@ Still very much a WIP as I learn some nix stuff.
 - [ ] LSP ghost text
 - [ ] Set up cmp/cmdlind and cmp/git
 - [ ] Set up better tab movement with luasnip
+- [ ] Diagnostics plugin
 
 ### Nix
 
