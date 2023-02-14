@@ -25,7 +25,8 @@ wk.register({
     l = { "<C-w>l", "Move to right window"},
     j = { "<C-w>j", "Move to window below"},
     k = { "<C-w>k", "Move to window above"},
-    d = { "<cmd>q<cr>", "Close the window"}
+    d = { "<C-w>c", "Delete window"},
+    w = { "<C-w>p", "Other window"}
   },
   a = {
     name = "applications",
@@ -41,6 +42,10 @@ wk.register({
     s = { "<cmd>Git<cr>", "git status" },
     p = { "<cmd>Git push<cr>", "git push" }
   },
+  b = {
+    name = "+buffers",
+    d = { " ", "kill the current buffer" }
+  }
 }, { prefix = "<leader>"})
 
 -- Some keybindings for special characters are easier to bind this way

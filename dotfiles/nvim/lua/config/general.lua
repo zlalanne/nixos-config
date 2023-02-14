@@ -33,6 +33,9 @@ vim.opt.cursorline = true
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
+-- Clear search with <esc>
+vim.keymap.set({"i", "n"}, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
+
 -- Turn on spellcheck in some files
 vim.api.nvim_create_autocmd("FileType", {
     pattern = { "gitcommit", "markdown" },
