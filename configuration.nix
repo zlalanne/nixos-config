@@ -239,10 +239,10 @@
       };
 
       home.file = {
-          ".config/nvim" = {
-              recursive = true;
-              source = ./dotfiles/nvim;
-          };
+        ".config/nvim" = {
+          recursive = true;
+          source = ./dotfiles/nvim;
+        };
       };
 
       programs.zsh = {
