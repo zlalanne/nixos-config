@@ -121,6 +121,7 @@
         pkgs.rsync
         pkgs.ripgrep
         pkgs.gnumake
+        pkgs.tig
 
         # Development
         pkgs.esphome
