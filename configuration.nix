@@ -192,12 +192,10 @@
           telescope-nvim
           which-key-nvim
 
-          tokyonight-nvim
-          lualine-nvim
-          gitsigns-nvim
 
           vim-fugitive
 
+          # LSP
           nvim-lspconfig
           cmp-buffer
           cmp-path
@@ -209,6 +207,16 @@
 
           undotree
           vim-be-good
+          mini-nvim
+
+          # Editor
+          trouble-nvim
+
+          # UI
+          tokyonight-nvim
+          lualine-nvim
+          gitsigns-nvim
+          nvim-web-devicons
 
         ];
         extraPackages = [
@@ -225,7 +233,9 @@
         ];
         extraConfig = ''
           lua <<EOF
-            require("config.theme")
+            require("config.general")
+            require("config.editor")
+            require("config.ui")
             require("config.treesitter")
             require("config.telescope")
             require("config.which-key")
@@ -233,7 +243,6 @@
             require("config.lsp")
             require("config.lualine")
             require("config.gitsigns")
-            require("config.general")
             require("config.keymaps")
           EOF'';
       };

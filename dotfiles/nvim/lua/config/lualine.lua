@@ -6,7 +6,7 @@ require('lualine').setup({
         lualine_b = {
             {
                 "diff",
-                colored = false,
+                colored = true,
             }
         }
     }
