@@ -29,7 +29,10 @@ cmp.setup({
         { name = "luasnip" },
         { name = "buffer" },
         { name = "path" },
-    })
+    }),
+    experimental = {
+        ghost_text = true
+    }
 })
 
 local on_attach = function(client, buffer)

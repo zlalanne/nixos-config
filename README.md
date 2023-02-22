@@ -22,7 +22,7 @@ Still very much a WIP as I learn some nix stuff.
 - [x] YAML language server integration
 - [x] Markdown language server integration
 - [ ] Python language server
-- [ ] LSP ghost text
+- [x] LSP ghost text
 - [ ] Set up cmp/cmdlind and cmp/git
 - [ ] Set up better tab movement with luasnip
 - [ ] Diagnostics plugin
