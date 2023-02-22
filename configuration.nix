@@ -243,7 +243,6 @@
             require("config.which-key")
             require("config.fugitive")
             require("config.lsp")
-            require("config.gitsigns")
             require("config.keymaps")
           EOF'';
       };
