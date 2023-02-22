@@ -42,8 +42,7 @@ wk.register({
         p = { "<cmd>Git push<cr>", "git push" }
     },
     b = {
-        name = "+buffers",
-        d = { " ", "kill the current buffer" }
+        name = "+buffers"
     },
     x = {
         name = "+diagnostics"
