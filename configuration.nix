@@ -126,6 +126,7 @@
         # Development
         pkgs.esphome
         pkgs.yamllint
+        pkgs.kotlin
 
         # DevOps Tools
         pkgs.ansible
