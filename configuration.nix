@@ -301,6 +301,9 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
+  # Enable avanhi for chromecast
+  services.avahi.enable = true;
+
   # For tailscale. Discussion: https://github.com/tailscale/tailscale/issues/4432
   networking.firewall.checkReversePath = "loose";
 
