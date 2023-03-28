@@ -43,6 +43,10 @@
   services.printing.enable = true;
   services.printing.drivers = [ ];
 
+  # Disable Network Manager service
+  # https://github.com/NixOS/nixpkgs/issues/180175
+  systemd.services.NetworkManager-wait-online.enable = false;
+
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
@@ -62,6 +66,8 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
+
+  nix.settings.auto-optimise-store = true;
 
   services.flatpak.enable = true;
 
@@ -96,6 +102,9 @@
       # One-off
       etcher
       screen
+
+      # Proprietary apps
+      zoom-us
     ];
   };
 
