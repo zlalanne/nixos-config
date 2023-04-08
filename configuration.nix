@@ -98,6 +98,7 @@
       firefox
       kate
       vlc
+      microsoft-edge
 
       # One-off
       etcher
@@ -144,7 +145,14 @@
         pkgs.calibre
       ];
 
-      services.syncthing = { enable = true; };
+      services.syncthing = {
+        enable = true;
+      };
+
+      services.kdeconnect = {
+        enable = true;
+        indicator = true;
+      };
 
       programs.tmux = {
         enable = true;
@@ -304,11 +312,10 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = true;
+  # Ports 1714-1764 used for KDE Connect
+  networking.firewall.allowedTCPPortRanges = [{ from = 1714; to = 1764; }];
+  networking.firewall.allowedUDPPortRanges = [{ from = 1714; to = 1764; }];
 
   # Enable avanhi for chromecast
   services.avahi.enable = true;
