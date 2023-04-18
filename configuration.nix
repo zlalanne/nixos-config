@@ -254,6 +254,7 @@
           lua <<EOF
             require("config.options")
             require("config.autocmd")
+            require("config.keymaps")
 
             require("config.general")
             require("config.coding")
@@ -264,7 +265,6 @@
             require("config.which-key")
             require("config.fugitive")
             require("config.lsp")
-            require("config.keymaps")
           EOF'';
       };
 

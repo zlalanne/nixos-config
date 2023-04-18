@@ -1,6 +1,3 @@
-vim.o.timeout = true
-vim.o.timeoutlen = 300
-
 -- Use setup defaults with spelling enabled
 require("which-key").setup {
     plugins = {
@@ -20,12 +17,6 @@ wk.register({
     },
     w = {
         name = "windows",
-        h = { "<C-w>h", "Move to left window" },
-        l = { "<C-w>l", "Move to right window" },
-        j = { "<C-w>j", "Move to window below" },
-        k = { "<C-w>k", "Move to window above" },
-        d = { "<C-w>c", "Delete window" },
-        w = { "<C-w>p", "Other window" }
     },
     a = {
         name = "applications",

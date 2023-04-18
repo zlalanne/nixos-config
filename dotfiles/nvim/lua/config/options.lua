@@ -44,6 +44,7 @@ opt.splitright = true -- Put new windows right of current
 opt.swapfile = false -- Disable swapfile
 opt.tabstop = 4 -- Number of spaces tabs count for
 opt.termguicolors = true -- True color support
+opt.timeout = true
 opt.timeoutlen = 300
 opt.undofile = true
 opt.undolevels = 10000
