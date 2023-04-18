@@ -161,7 +161,7 @@
 
       programs.kitty = {
         enable = true;
-        theme = "Tokyo Night";
+        theme = "Tokyo Night Storm";
         font = {
           name = "Hack Nerd Font";
           package = pkgs.nerdfonts;
