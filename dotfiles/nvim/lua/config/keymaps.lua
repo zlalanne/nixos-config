@@ -49,8 +49,9 @@ map(
 map("v", "<", "<gv")
 map("v", ">", ">gv")
 
--- New file
+-- File
 map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
+map("n", "<leader>fd", "<cmd>call delete(expand('%')) | bdelete!<cr>", { desc = "Delete Current File" })
 
 -- Diagnostics
 map("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location List" })
@@ -70,3 +71,7 @@ map("n", "<leader>|", "<C-W>v", { desc = "Split window right" })
 
 -- Quit
 map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
+
+-- Center screen when moving up and down
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")

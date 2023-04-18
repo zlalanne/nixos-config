@@ -256,7 +256,6 @@
             require("config.autocmd")
             require("config.keymaps")
 
-            require("config.general")
             require("config.coding")
             require("config.editor")
             require("config.ui")
