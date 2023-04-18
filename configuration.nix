@@ -253,6 +253,7 @@
         extraConfig = ''
           lua <<EOF
             require("config.general")
+            require("config.autocmd")
             require("config.coding")
             require("config.editor")
             require("config.ui")
