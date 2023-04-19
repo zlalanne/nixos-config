@@ -15,3 +15,6 @@ require('lualine').setup({
         }
     }
 })
+
+-- Prettier floating windows for some dialogs
+require("dressing").setup()

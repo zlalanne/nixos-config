@@ -236,7 +236,7 @@
           lualine-nvim
           gitsigns-nvim
           nvim-web-devicons
-
+          dressing-nvim
         ];
         extraPackages = [
           # Make telescope / fuzzy finding better
@@ -257,10 +257,10 @@
             require("config.keymaps")
             require("config.colorscheme")
             require("config.treesitter")
+            require("config.ui")
 
             require("config.coding")
             require("config.editor")
-            require("config.ui")
             require("config.telescope")
             require("config.which-key")
             require("config.fugitive")
