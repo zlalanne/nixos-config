@@ -1,10 +1,6 @@
 -- Icons
 require("nvim-web-devicons").setup()
 
--- Theme
-vim.opt.termguicolors = true
-vim.cmd('colorscheme tokyonight-storm')
-
 -- Status line
 require('lualine').setup({
     options = {

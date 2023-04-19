@@ -255,11 +255,12 @@
             require("config.options")
             require("config.autocmd")
             require("config.keymaps")
+            require("config.colorscheme")
+            require("config.treesitter")
 
             require("config.coding")
             require("config.editor")
             require("config.ui")
-            require("config.treesitter")
             require("config.telescope")
             require("config.which-key")
             require("config.fugitive")
