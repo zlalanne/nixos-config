@@ -168,7 +168,15 @@
           package = pkgs.nerdfonts;
           size = 12;
         };
-        extraConfig = "enable_audio_bell no";
+        extraConfig = ''
+          enable_audio_bell no 
+
+          # Tab management
+          map ctrl+shift+enter new_tab
+          map ctrl+shift+l next_tab
+          map ctrl+shift+h previous_tab
+          map ctrl+shift+q close_tab
+        '';
       };
 
       programs.bat = {
