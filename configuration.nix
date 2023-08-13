@@ -144,6 +144,7 @@
         pkgs.calibre
 
         pkgs.audacity
+        pkgs.element-desktop
       ];
 
       services.syncthing = {
