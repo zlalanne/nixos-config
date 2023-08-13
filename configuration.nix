@@ -2,7 +2,11 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+let
+  unstablePkgs = import <unstablePkgs> { };
+in
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -224,7 +228,8 @@
       programs.neovim = {
         enable = true;
         vimAlias = true;
-        plugins = with pkgs.vimPlugins; [
+        package = unstablePkgs.neovim-unwrapped;
+        plugins = with unstablePkgs.vimPlugins; [
 
           nvim-treesitter.withAllGrammars
           telescope-nvim
@@ -249,6 +254,7 @@
 
           # Editor
           trouble-nvim
+          flash-nvim
 
           # UI
           tokyonight-nvim
@@ -328,6 +334,9 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+
+  # Enable zsh at system level
+  programs.zsh.enable = true;
 
   # List services that you want to enable:
 
