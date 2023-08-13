@@ -127,7 +127,6 @@
 
       home.packages = [
         # Command line utilities
-        pkgs.htop
         pkgs.rsync
         pkgs.ripgrep
         pkgs.gnumake
@@ -143,6 +142,8 @@
 
         # Media Management
         pkgs.calibre
+
+        pkgs.audacity
       ];
 
       services.syncthing = {
@@ -200,6 +201,15 @@
           interactive.diffFilter =
             "${pkgs.diff-so-fancy}/bin/diff-so-fancy --patch";
         };
+      };
+
+      programs.htop = {
+        enable = true;
+        settings.show_program_path = true;
+      };
+
+      programs.zoxide = {
+        enable = true;
       };
 
       programs.neovim = {
