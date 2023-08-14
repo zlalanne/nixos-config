@@ -219,6 +219,9 @@ in
         vimAlias = true;
         package = unstablePkgs.neovim-unwrapped;
         plugins = with unstablePkgs.vimPlugins; [
+          # Common dependencies
+          plenary-nvim
+
           # LSP
           nvim-lspconfig
           cmp-buffer
@@ -251,6 +254,9 @@ in
           # Git
           neogit
 
+          # Sessions
+          persistence-nvim
+
           # UI
           tokyonight-nvim
           lualine-nvim
@@ -275,8 +281,8 @@ in
             require("config.options")
             require("config.autocmd")
             require("config.keymaps")
-            require("config.colorscheme")
 
+            require("config.colorscheme")
             require("config.treesitter")
             require("config.ui")
             require("config.coding")
@@ -285,6 +291,7 @@ in
             require("config.telescope")
             require("config.which-key")
             require("config.lsp")
+            require("config.sessions")
           EOF'';
       };
 
