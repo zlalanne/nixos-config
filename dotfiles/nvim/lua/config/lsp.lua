@@ -58,8 +58,9 @@ end
 -- Language server setup
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-require("lspconfig")["sumneko_lua"].setup {
+require("lspconfig")["lua_ls"].setup({
     on_attach = on_attach,
+    capabilities = capabilities,
     settings = {
         Lua = {
             runtime = {
@@ -80,10 +81,9 @@ require("lspconfig")["sumneko_lua"].setup {
             },
         },
     },
-    capabilities = capabilities,
-}
+})
 
-require("lspconfig")["nil_ls"].setup {
+require("lspconfig")["nil_ls"].setup({
     on_attach = on_attach,
     settings = {
         ['nil'] = {
@@ -93,14 +93,14 @@ require("lspconfig")["nil_ls"].setup {
         }
     },
     capabilities = capabilities,
-}
+})
 
-require("lspconfig")["yamlls"].setup {
+require("lspconfig")["yamlls"].setup({
     on_attach = on_attach,
     capabilities = capabilities,
-}
+})
 
-require("lspconfig")["marksman"].setup {
+require("lspconfig")["marksman"].setup({
     on_attach = on_attach,
     capabilities = capabilities,
-}
+})

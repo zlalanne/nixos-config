@@ -16,7 +16,6 @@ Still very much a WIP as I learn some nix stuff.
 - [ ] Better clipboard integration
 - [x] Consider reorganizing lua config
 - [ ] Use q for quiting out of help menus
-- [ ] Maybe make git commit quieter?
 - [ ] Set descriptions for keybindings in their own files but integrate with whichkey
 - [ ] Bash language server integration
 - [x] YAML language server integration
