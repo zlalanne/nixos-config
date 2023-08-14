@@ -37,3 +37,15 @@ vim.keymap.set({ "n", "x", "o" }, "S", function() require("flash").treesitter() 
 vim.keymap.set({ "o" }, "r", function() require("flash").remote() end, { desc = "Remote Flash" })
 vim.keymap.set({ "o", "x" }, "R", function() require("flash").treesitter_search() end, { desc = "Treesitter Search" })
 vim.keymap.set({ "c" }, "r", function() require("flash").toggle() end, { desc = "Toggle Flash Search" })
+
+-- Harpoon
+local mark = require("harpoon.mark")
+local ui = require("harpoon.ui")
+
+vim.keymap.set("n", "<leader>ah", mark.add_file, {desc = "Harpoon"})
+vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
+
+vim.keymap.set("n", "<C-h>", function() ui.nav_file(1) end)
+vim.keymap.set("n", "<C-j>", function() ui.nav_file(2) end)
+vim.keymap.set("n", "<C-k>", function() ui.nav_file(3) end)
+vim.keymap.set("n", "<C-l>", function() ui.nav_file(4) end)

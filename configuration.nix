@@ -114,17 +114,6 @@ in
   };
 
   home-manager.users.zack = { pkgs, ... }:
-    let
-      vim-be-good = pkgs.vimUtils.buildVimPluginFrom2Nix {
-        name = "vim-be-good";
-        src = pkgs.fetchFromGitHub {
-          owner = "ThePrimeagen";
-          repo = "vim-be-good";
-          rev = "c290810728a4f75e334b07dc0f3a4cdea908d351";
-          hash = "sha256-lJNY/5dONZLkxSEegrwtZ6PHYsgMD3nZkbxm6fFq3vY=";
-        };
-      };
-    in
     {
 
       home.stateVersion = "22.11";
@@ -230,14 +219,6 @@ in
         vimAlias = true;
         package = unstablePkgs.neovim-unwrapped;
         plugins = with unstablePkgs.vimPlugins; [
-
-          nvim-treesitter.withAllGrammars
-          telescope-nvim
-          which-key-nvim
-
-
-          vim-fugitive
-
           # LSP
           nvim-lspconfig
           cmp-buffer
@@ -248,13 +229,28 @@ in
           friendly-snippets
           nvim-cmp
 
+          # Applications
           undotree
           vim-be-good
-          mini-nvim
 
           # Editor
           trouble-nvim
           flash-nvim
+          todo-comments-nvim
+          which-key-nvim
+          telescope-nvim
+          harpoon
+
+          # Coding
+          mini-nvim
+
+          # Treesitter
+          nvim-treesitter.withAllGrammars
+          playground
+
+          # Git
+          vim-fugitive
+          neogit
 
           # UI
           tokyonight-nvim
@@ -281,10 +277,11 @@ in
             require("config.autocmd")
             require("config.keymaps")
             require("config.colorscheme")
+
             require("config.treesitter")
             require("config.ui")
-
             require("config.coding")
+            require("config.git")
             require("config.editor")
             require("config.telescope")
             require("config.which-key")

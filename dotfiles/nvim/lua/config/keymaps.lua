@@ -73,5 +73,5 @@ map("n", "<leader>|", "<C-W>v", { desc = "Split window right" })
 map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
 
 -- Center screen when moving up and down
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")
