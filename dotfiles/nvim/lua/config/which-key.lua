@@ -29,8 +29,7 @@ wk.register({
     },
     g = {
         name = "git",
-        s = { "<cmd>Git<cr>", "git status" },
-        p = { "<cmd>Git push<cr>", "git push" }
+        g = { "<cmd>Neogit<cr>", "Launch neogit" },
     },
     b = {
         name = "+buffers"

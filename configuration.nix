@@ -249,7 +249,6 @@ in
           playground
 
           # Git
-          vim-fugitive
           neogit
 
           # UI
@@ -285,7 +284,6 @@ in
             require("config.editor")
             require("config.telescope")
             require("config.which-key")
-            require("config.fugitive")
             require("config.lsp")
           EOF'';
       };
