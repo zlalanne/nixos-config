@@ -1,9 +1,9 @@
 local function map(mode, lhs, rhs, opts)
-    vim.keymap.set(mode, lhs, rhs, opts)
+  vim.keymap.set(mode, lhs, rhs, opts)
 end
 
 local function toggle(option)
-    vim.opt_local[option] = not vim.opt_local[option]:get()
+  vim.opt_local[option] = not vim.opt_local[option]:get()
 end
 
 -- Better up/down
@@ -31,7 +31,7 @@ map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 -- Buffers
 map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 map("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
-map("n", "<leader><Tab>", "<C-6>", {desc = "Switch to Last Buffer"})
+map("n", "<leader><Tab>", "<C-6>", { desc = "Switch to Last Buffer" })
 
 -- Clear search with <esc>
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
@@ -58,8 +58,12 @@ map("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location List" })
 map("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
 
 -- Toggle options
-map("n", "<leader>us", function() toggle("spell") end, { desc = "Toggle Spelling" })
-map("n", "<leader>uw", function() toggle("wrap") end, { desc = "Toggle Word Wrap" })
+map("n", "<leader>us", function()
+  toggle("spell")
+end, { desc = "Toggle Spelling" })
+map("n", "<leader>uw", function()
+  toggle("wrap")
+end, { desc = "Toggle Word Wrap" })
 
 -- Windows
 map("n", "<leader>ww", "<C-W>p", { desc = "Other window" })

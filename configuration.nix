@@ -231,6 +231,7 @@ in
           cmp_luasnip
           friendly-snippets
           nvim-cmp
+          null-ls-nvim
 
           # Applications
           undotree
@@ -275,6 +276,7 @@ in
           pkgs.nixpkgs-fmt
           pkgs.nodePackages.yaml-language-server
           pkgs.marksman
+          pkgs.stylua
         ];
         extraConfig = ''
           lua <<EOF
