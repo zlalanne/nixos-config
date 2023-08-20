@@ -80,3 +80,6 @@ end)
 
 -- Undotree
 vim.keymap.set("n", "<leader>au", "<cmd>UndotreeToggle<cr>", { desc = "Undotree" })
+
+-- VimBeGood
+vim.keymap.set("n", "<leader>av", "<cmd>VimBeGood<cr>", { desc = "VimBeGood" })

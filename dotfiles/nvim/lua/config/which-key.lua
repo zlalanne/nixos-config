@@ -33,19 +33,8 @@ wk.register({
     f = { "<cmd>Telescope find_files<cr>", "Find File" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
   },
-  a = {
-    name = "applications",
-    v = { "<cmd>VimBeGood<cr>", "VimBeGood" },
-  },
   p = {
     name = "project",
     f = { "<cmd>Telescope git_files<cr>", "Project files" },
   },
 }, { prefix = "<leader>" })
-
--- Some keybindings for special characters are easier to bind this way
-wk.register({
-  ["<leader><Tab>"] = { "<C-6>", "Last Buffer" },
-  ["<leader>w|"] = { "<cmd>vsplit<cr>", "Split vertically" },
-  ["<leader>w-"] = { "<cmd>split<cr>", "Split horizontally" },
-})
