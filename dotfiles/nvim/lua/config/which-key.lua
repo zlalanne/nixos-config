@@ -33,27 +33,13 @@ wk.register({
     f = { "<cmd>Telescope find_files<cr>", "Find File" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
   },
-  w = {
-    name = "windows",
-  },
   a = {
     name = "applications",
-    u = { "<cmd>UndotreeToggle<cr>", "UndoTree" },
     v = { "<cmd>VimBeGood<cr>", "VimBeGood" },
   },
   p = {
     name = "project",
     f = { "<cmd>Telescope git_files<cr>", "Project files" },
-  },
-  g = {
-    name = "git",
-    g = { "<cmd>Neogit<cr>", "Launch neogit" },
-  },
-  b = {
-    name = "+buffers",
-  },
-  x = {
-    name = "+diagnostics",
   },
 }, { prefix = "<leader>" })
 

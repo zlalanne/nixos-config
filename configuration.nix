@@ -283,6 +283,7 @@ in
           lua <<EOF
             require("config.options")
             require("config.autocmd")
+            require("config.which-key")
             require("config.keymaps")
 
             require("config.colorscheme")
@@ -292,7 +293,6 @@ in
             require("config.git")
             require("config.editor")
             require("config.telescope")
-            require("config.which-key")
             require("config.lsp")
             require("config.sessions")
           EOF'';

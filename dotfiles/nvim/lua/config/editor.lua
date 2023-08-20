@@ -77,3 +77,6 @@ end)
 vim.keymap.set("n", "<C-l>", function()
   ui.nav_file(4)
 end)
+
+-- Undotree
+vim.keymap.set("n", "<leader>au", "<cmd>UndotreeToggle<cr>", { desc = "Undotree" })
