@@ -92,6 +92,7 @@ in
       # Basic tools
       file
       unzip
+      unrar-wrapper
 
       # Networking Tools
       dig
