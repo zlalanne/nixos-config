@@ -131,6 +131,9 @@ in
         pkgs.yamllint
         pkgs.kotlin
 
+        # 3D Printing
+        pkgs.prusa-slicer
+
         # DevOps Tools
         pkgs.ansible
 
