@@ -345,6 +345,8 @@ in
 
   # Enable zsh at system level
   programs.zsh.enable = true;
+  # Enable parition manager for KDE
+  programs.partition-manager.enable = true;
 
   # List services that you want to enable:
 
