@@ -174,6 +174,10 @@ in
           map ctrl+shift+l next_tab
           map ctrl+shift+h previous_tab
           map ctrl+shift+q close_tab
+
+          tab_bar_style powerline
+
+          allow_remote_control yes
         '';
       };
 
