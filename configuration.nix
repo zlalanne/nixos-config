@@ -133,6 +133,7 @@ in
 
         # 3D Printing
         pkgs.prusa-slicer
+        pkgs.openscad
 
         # DevOps Tools
         pkgs.ansible
@@ -251,7 +252,7 @@ in
           todo-comments-nvim
           which-key-nvim
           telescope-nvim
-          harpoon
+          harpoon2
 
           # Coding
           mini-nvim
