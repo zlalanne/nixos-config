@@ -369,6 +369,25 @@ in
   # For tailscale. Discussion: https://github.com/tailscale/tailscale/issues/4432
   networking.firewall.checkReversePath = "loose";
 
+  system.autoUpgrade = {
+    enable = true;
+    flags = [
+      "--update-input"
+      "nixpkgs"
+      "-L" # print build logs
+    ];
+    dates = "02:00";
+    randomizedDelaySec = "45min";
+  };
+
+  # Garbage collection
+  nix.gc =
+    {
+      automatic = true;
+      dates = "03:15";
+      options = "-d";
+    };
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
