@@ -201,6 +201,12 @@ in
         ];
       };
 
+      programs.direnv = {
+        enable = true;
+        enableZshIntegration = true;
+        nix-direnv.enable = true;
+      };
+
       programs.git = {
         enable = true;
         userName = "Zack Lalanne";
@@ -379,6 +385,11 @@ in
     dates = "02:00";
     randomizedDelaySec = "45min";
   };
+
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Garbage collection
   nix.gc =
