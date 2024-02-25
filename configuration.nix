@@ -2,15 +2,11 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
-let
-  unstablePkgs = import <unstablePkgs> { };
-in
+{ inputs, outputs, lib, config, pkgs, ... }:
 {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    <home-manager/nixos>
   ];
 
   # Bootloader.
@@ -75,9 +71,6 @@ in
 
   services.flatpak.enable = true;
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-12.2.3"
-  ];
 
   # Enable the tailscale service
   services.tailscale.enable = true;
@@ -232,8 +225,8 @@ in
       programs.neovim = {
         enable = true;
         vimAlias = true;
-        package = unstablePkgs.neovim-unwrapped;
-        plugins = with unstablePkgs.vimPlugins; [
+        package = pkgs.unstable.neovim-unwrapped;
+        plugins = with pkgs.unstable.vimPlugins; [
           # Common dependencies
           plenary-nvim
 
@@ -339,8 +332,20 @@ in
       };
     };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    overlays = [
+      outputs.overlays.additions
+      outputs.overlays.unstable-packages
+    ];
+
+    config = {
+      # Allow unfree packages
+      allowUnfree = true;
+      permittedInsecurePackages = [
+        "electron-12.2.3"
+      ];
+    };
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -385,6 +390,11 @@ in
     dates = "02:00";
     randomizedDelaySec = "45min";
   };
+
+  nix.package = pkgs.nixFlakes;
+  nix.extraOptions = ''
+    experimental-features = nix-command flakes
+  '';
 
   nix.settings.experimental-features = [
     "nix-command"
