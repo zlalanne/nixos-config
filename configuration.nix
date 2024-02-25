@@ -180,7 +180,7 @@
         config = { theme = "Solarized (dark)"; };
       };
 
-      programs.exa = {
+      programs.eza = {
         enable = true;
         enableAliases = true;
       };
@@ -342,7 +342,7 @@
       # Allow unfree packages
       allowUnfree = true;
       permittedInsecurePackages = [
-        "electron-12.2.3"
+        "electron-19.1.9"
       ];
     };
   };
