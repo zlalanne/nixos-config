@@ -255,6 +255,7 @@
 
           # Coding
           mini-nvim
+          rainbow-delimiters-nvim
 
           # Treesitter
           nvim-treesitter.withAllGrammars
