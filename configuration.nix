@@ -133,6 +133,7 @@
 
         # Media Management
         pkgs.calibre
+        pkgs.libation
 
         pkgs.audacity
         pkgs.element-desktop
