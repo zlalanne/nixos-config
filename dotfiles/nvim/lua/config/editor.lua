@@ -54,7 +54,7 @@ end, { desc = "Remote Flash" })
 vim.keymap.set({ "o", "x" }, "R", function()
   require("flash").treesitter_search()
 end, { desc = "Treesitter Search" })
-vim.keymap.set({ "c" }, "r", function()
+vim.keymap.set({ "c" }, "<C-s>", function()
   require("flash").toggle()
 end, { desc = "Toggle Flash Search" })
 
