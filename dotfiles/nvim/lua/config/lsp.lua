@@ -5,6 +5,9 @@ require("luasnip").setup({
   delete_check_events = "TextChanged",
 })
 
+-- UI for LSP notifications
+require("fidget").setup({})
+
 -- Completion setup
 vim.opt.completeopt = "menu,menuone,noselect"
 
@@ -16,13 +19,11 @@ cmp.setup({
     end,
   },
   mapping = cmp.mapping.preset.insert({
-    ["<C-j>"] = cmp.mapping.select_next_item(),
-    ["<C-k>"] = cmp.mapping.select_prev_item(),
-    ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-f>"] = cmp.mapping.scroll_docs(4),
-    ["<C-Space>"] = cmp.mapping.complete(),
+    ["<C-n>"] = cmp.mapping.select_next_item(),
+    ["<C-p>"] = cmp.mapping.select_prev_item(),
+    ["<C-y>"] = cmp.mapping.confirm({ select = true }),
     ["<C-e>"] = cmp.mapping.abort(),
-    ["<CR>"] = cmp.mapping.confirm({ select = true }),
+    ["<C-Space>"] = cmp.mapping.complete(),
   }),
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
@@ -67,7 +68,7 @@ require("lspconfig")["lua_ls"].setup({
         version = "LuaJIT",
       },
       diagnostics = {
-        globals = { "vim" },
+        globals = { "vim", "it", "describe", "before_each", "after_each" },
       },
       workspace = {
         library = vim.api.nvim_get_runtime_file("", true),

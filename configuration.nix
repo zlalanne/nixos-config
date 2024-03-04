@@ -241,6 +241,7 @@
           friendly-snippets
           nvim-cmp
           null-ls-nvim
+          fidget-nvim
 
           # Applications
           undotree
