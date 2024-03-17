@@ -135,6 +135,7 @@
         pkgs.calibre
         pkgs.libation
 
+        pkgs.inkscape
         pkgs.audacity
         pkgs.element-desktop
       ];
