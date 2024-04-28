@@ -96,7 +96,6 @@
       firefox
       kate
       vlc
-      microsoft-edge
 
       # One-off
       etcher
