@@ -86,6 +86,7 @@
       file
       unzip
       unrar-wrapper
+      killall
 
       # Networking Tools
       dig
