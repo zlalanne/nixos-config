@@ -99,7 +99,7 @@
       vlc
 
       # One-off
-      etcher
+            #etcher
       screen
 
       # Proprietary apps
@@ -192,7 +192,6 @@
 
       programs.eza = {
         enable = true;
-        enableAliases = true;
       };
 
       programs.fzf = {
