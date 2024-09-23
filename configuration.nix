@@ -30,13 +30,13 @@
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
+  services.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us";
-    xkbVariant = "";
+    variant = "";
   };
 
   # Enable CUPS to print documents.
@@ -99,7 +99,7 @@
       vlc
 
       # One-off
-            #etcher
+      #ethe
       screen
 
       # Proprietary apps
@@ -110,7 +110,7 @@
   home-manager.users.zack = { pkgs, ... }:
     {
 
-      home.stateVersion = "22.11";
+      home.stateVersion = "24.05";
 
       home.packages = [
         # Command line utilities
@@ -147,6 +147,10 @@
       services.kdeconnect = {
         enable = true;
         indicator = true;
+      };
+
+      programs.helix = {
+        enable = true;
       };
 
       programs.tmux = {
@@ -325,7 +329,7 @@
       programs.zsh = {
         enable = true;
         enableCompletion = false;
-        enableAutosuggestions = true;
+        autosuggestion.enable = true;
         oh-my-zsh = {
           enable = true;
           plugins = [ "git" "rsync" "extract" "ripgrep" "docker" ];
