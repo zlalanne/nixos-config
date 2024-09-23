@@ -2,7 +2,14 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, outputs, lib, config, pkgs, ... }:
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 {
   imports = [
     # Include the results of the hardware scan.
@@ -71,7 +78,6 @@
 
   services.flatpak.enable = true;
 
-
   # Enable the tailscale service
   services.tailscale.enable = true;
 
@@ -79,7 +85,10 @@
   users.users.zack = {
     isNormalUser = true;
     description = "Zack Lalanne";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     shell = pkgs.zsh;
     packages = with pkgs; [
       # Basic tools
@@ -99,7 +108,6 @@
       vlc
 
       # One-off
-      #ethe
       screen
 
       # Proprietary apps
@@ -107,7 +115,8 @@
     ];
   };
 
-  home-manager.users.zack = { pkgs, ... }:
+  home-manager.users.zack =
+    { pkgs, ... }:
     {
 
       home.stateVersion = "24.05";
@@ -151,6 +160,24 @@
 
       programs.helix = {
         enable = true;
+        extraPackages = [
+          pkgs.nil
+          pkgs.nixfmt-rfc-style
+        ];
+        settings = {
+          theme = "tokyonight_storm";
+        };
+        languages = {
+          language = [
+            {
+              name = "nix";
+              formatter = {
+                command = "nixfmt";
+              };
+              auto-format = true;
+            }
+          ];
+        };
       };
 
       programs.tmux = {
@@ -190,7 +217,9 @@
 
       programs.bat = {
         enable = true;
-        config = { theme = "Solarized (dark)"; };
+        config = {
+          theme = "Solarized (dark)";
+        };
       };
 
       programs.eza = {
@@ -218,10 +247,8 @@
         userEmail = "zack.lalanne@gmail.com";
         extraConfig = {
           color.ui = true;
-          core.pager =
-            "${pkgs.diff-so-fancy}/bin/diff-so-fancy | ${pkgs.less}/bin/less --tabs=4 -RFX";
-          interactive.diffFilter =
-            "${pkgs.diff-so-fancy}/bin/diff-so-fancy --patch";
+          core.pager = "${pkgs.diff-so-fancy}/bin/diff-so-fancy | ${pkgs.less}/bin/less --tabs=4 -RFX";
+          interactive.diffFilter = "${pkgs.diff-so-fancy}/bin/diff-so-fancy --patch";
         };
       };
 
@@ -324,6 +351,10 @@
           recursive = true;
           source = ./dotfiles/nvim;
         };
+        ".config/helix/themes" = {
+          recursive = true;
+          source = ./dotfiles/helix/themes;
+        };
       };
 
       programs.zsh = {
@@ -332,7 +363,13 @@
         autosuggestion.enable = true;
         oh-my-zsh = {
           enable = true;
-          plugins = [ "git" "rsync" "extract" "ripgrep" "docker" ];
+          plugins = [
+            "git"
+            "rsync"
+            "extract"
+            "ripgrep"
+            "docker"
+          ];
           theme = "ys";
           extraConfig = ''
             COMPLETION_WAITING_DOTS="true"
@@ -355,15 +392,17 @@
     config = {
       # Allow unfree packages
       allowUnfree = true;
-      permittedInsecurePackages = [
-        "electron-19.1.9"
-      ];
+      permittedInsecurePackages = [ "electron-19.1.9" ];
     };
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [ vim google-chrome tailscale ];
+  environment.systemPackages = with pkgs; [
+    vim
+    google-chrome
+    tailscale
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -385,8 +424,18 @@
 
   networking.firewall.enable = true;
   # Ports 1714-1764 used for KDE Connect
-  networking.firewall.allowedTCPPortRanges = [{ from = 1714; to = 1764; }];
-  networking.firewall.allowedUDPPortRanges = [{ from = 1714; to = 1764; }];
+  networking.firewall.allowedTCPPortRanges = [
+    {
+      from = 1714;
+      to = 1764;
+    }
+  ];
+  networking.firewall.allowedUDPPortRanges = [
+    {
+      from = 1714;
+      to = 1764;
+    }
+  ];
 
   # Enable avanhi for chromecast
   services.avahi.enable = true;
@@ -416,12 +465,11 @@
   ];
 
   # Garbage collection
-  nix.gc =
-    {
-      automatic = true;
-      dates = "03:15";
-      options = "-d";
-    };
+  nix.gc = {
+    automatic = true;
+    dates = "03:15";
+    options = "-d";
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

@@ -14,23 +14,24 @@
   };
 
   outputs =
-    { self
-    , nixpkgs
-    , nixpkgs-unstable
-    , home-manager
-    } @ inputs:
+    {
+      self,
+      nixpkgs,
+      nixpkgs-unstable,
+      home-manager,
+    }@inputs:
     let
       inherit (self) outputs;
       system = "x86_64-linux";
     in
     {
-      overlays = import ./overlays {
-        inherit inputs;
-      };
+      overlays = import ./overlays { inherit inputs; };
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs outputs; };
+          specialArgs = {
+            inherit inputs outputs;
+          };
           modules = [
             ./configuration.nix
             home-manager.nixosModules.home-manager
