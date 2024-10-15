@@ -50,6 +50,8 @@
   services.printing.enable = true;
   services.printing.drivers = [ ];
 
+  services.mealie.enable = true;
+
   # Disable Network Manager service
   # https://github.com/NixOS/nixpkgs/issues/180175
   systemd.services.NetworkManager-wait-online.enable = false;
@@ -166,6 +168,9 @@
         ];
         settings = {
           theme = "tokyonight_storm";
+          editor = {
+            line-number = "relative";
+          };
         };
         languages = {
           language = [
