@@ -139,6 +139,8 @@
         pkgs.prusa-slicer
         pkgs.openscad
 
+        pkgs.tuxpaint
+
         # DevOps Tools
         pkgs.ansible
 
