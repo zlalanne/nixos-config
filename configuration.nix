@@ -57,7 +57,6 @@
   systemd.services.NetworkManager-wait-online.enable = false;
 
   # Enable sound with pipewire.
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -461,7 +460,7 @@
     randomizedDelaySec = "45min";
   };
 
-  nix.package = pkgs.nixFlakes;
+  nix.package = pkgs.nixVersions.stable;
   nix.extraOptions = ''
     experimental-features = nix-command flakes
   '';
