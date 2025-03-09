@@ -373,7 +373,6 @@
             "git"
             "rsync"
             "extract"
-            "ripgrep"
             "docker"
           ];
           theme = "ys";
