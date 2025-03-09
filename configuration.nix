@@ -97,6 +97,7 @@
       unzip
       unrar-wrapper
       killall
+      ncdu
 
       # Networking Tools
       dig
